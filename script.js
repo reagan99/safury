@@ -27,7 +27,34 @@ function updateFileName() {
         fileLabel.innerText = fileName;
     } else {
         // 파일이 선택되지 않았을 경우 기본 문구 표시
-        fileLabel.innerText = 'Click to upload file';
+        'Click to upload file';
     }
 }
 
+// 서버로 입력받은 파일 보내기
+function submit_clicked() {
+    // 파일 선택 확인
+    var fileInput = document.getElementById('music_file');
+    var file = fileInput.files[0];
+    if (!file) {
+        alert('Please select a file.');
+        return;
+    }
+
+    // 파일을 서버로 전송
+    var formData = new FormData();
+    formData.append('file', file);
+
+    fetch('/bocho', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(result => {
+        // 실행 결과를 화면에 표시
+        alert(result);
+    })
+    .catch(error => {
+        alert('An error occurred: ' + error.message);
+    });
+}

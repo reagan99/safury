@@ -89,7 +89,7 @@ ul{
     font-weight: 500;
     border:none;    
     width: 7rem;
-    height: 2rem;
+    height: 3rem;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -102,10 +102,12 @@ ul{
 }
 #top_button{
 position: absolute;
-border: none;
 border-radius: 5px;
-background-color: #1c1c1e;
-color: #fff;
+border: none;
+/*background-color: #1c1c1e;
+color: #fff;*/
+background-color: #fff;
+color: #1c1c1e;
 font-size: 1.2rem;
 font-weight: 500;
 padding: 10px 20px;
