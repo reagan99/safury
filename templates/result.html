@@ -1,20 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Subtract and Restore</title>
+    <title>Safury Administrator</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='resultstyle.css') }}">
 </head>
 <body>
-    <h1>Subtract and Restore</h1>
-    <form action="/decryption/" method="post" enctype="multipart/form-data">
-        <label for="file1">Select File 1:</label>
-        <input type="file" name="file1" accept=".wav, .mp3" required><br>
-        
-        <label for="file2">Select File 2:</label>
-        <input type="file" name="file2" accept=".wav, .mp3" required><br>
+    <ul style="width: 100%; height: 100%">
+        <li id="slide1">
+            <h1 id="title">Safury Administrator</h1>
+            <p>Select the original file & watermarked file to extract watermark text</p>
+            <br>
+            <form id="form" action="/decryption/" method="post" enctype="multipart/form-data">
 
-        <button type="submit">Submit</button>
-    </form>
+                    <div class="container">
+                        <label for="file1">Original file  </label>
+                        <input type="file" name="file1" accept=".wav, .mp3" required><br>
+                    </div>
+                    <div class="container">
+                        <label for="file2">Watermarked file  </label>
+                        <input type="file" name="file2" accept=".wav, .mp3" required><br>
+                    </div>
 
-    <p>Extracted Watermark Text: {{ extracted_watermark_text }}</p>
+                <br>
+                <button id="submit_button" type="submit">Extract</button>
+            </form>
+            <p>Extracted Watermark Text</p>
+            <p>{{ extracted_watermark_text }}</p>
+        </li>
+    </ul>
+    <script src="{{ url_for('static', path='resultscript.js') }}"></script>
 </body>
 </html>
