@@ -50,4 +50,4 @@ async def root(request: Request):
     return templates.TemplateResponse("result.html", {"request": request, "extracted_watermark_text": ""})
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="127.0.0.1", port=8001)
